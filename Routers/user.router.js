@@ -13,4 +13,16 @@ const router = express.Router();
  */
 router.get("/random", userControllers.randomUser);
 
+/**
+ * @api {get} / Get all the users
+ * @apiDescription Get all the users from the .json file
+ * @apiPermission User
+ *
+ * @apiHeader {String} Authorization   User's access token
+ *
+ * @apiSuccess {Object[]} all the users.
+ *
+ */
+router.get("/all", userControllers.allUser);
+
 module.exports = router;
