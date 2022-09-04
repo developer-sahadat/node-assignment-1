@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.all("*", (req, res) => {
-  res.send("Route Not Found");
+  res.send("Route Not Founded");
 });
 
 app.listen(port, () => {
