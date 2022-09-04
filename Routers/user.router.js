@@ -26,10 +26,9 @@ router.get("/random", userControllers.randomUser);
  */
 router.get("/all", userControllers.allUser);
 
-/*akhono update hoyni*/
 /**
- * @api {get} / Get all the users
- * @apiDescription Get all the users from the .json file
+ * @api {save} / Save a random user
+ * @apiDescription Save a user in the .json file
  * @apiPermission User
  *
  * @apiHeader {String} Authorization   User's access token
@@ -39,10 +38,9 @@ router.get("/all", userControllers.allUser);
  */
 router.post("/save", userControllers.userSave);
 
-/*akhono update hoyni*/
 /**
- * @api {get} / Get all the users
- * @apiDescription Get all the users from the .json file
+ * @api {PATCH} / Update a random user
+ * @apiDescription Update a user's information in the .json file using its id
  * @apiPermission User
  *
  * @apiHeader {String} Authorization   User's access token
@@ -50,6 +48,30 @@ router.post("/save", userControllers.userSave);
  * @apiSuccess {Object[]} all the users.
  *
  */
-router.post("/update/:id", userControllers.userUpdate);
+router.patch("/update/:id", userControllers.userUpdate);
+
+/**
+ * @api {PATCH} / update multiple users
+ * @apiDescription Update multiple users' information in the .json file
+ * @apiPermission User
+ *
+ * @apiHeader {String} Authorization   User's access token
+ *
+ * @apiSuccess {Object[]} all the users.
+ *
+ */
+router.patch("/bulk-update", userControllers.updateMultipleUsers);
+
+/**
+ * @api {DELETE} / Delete a user
+ * @apiDescription Delete a user from the .json file using its id
+ * @apiPermission User
+ *
+ * @apiHeader {String} Authorization   User's access token
+ *
+ * @apiSuccess {Object[]} all the users.
+ *
+ */
+router.delete("/delete", userControllers.deleteUser);
 
 module.exports = router;
